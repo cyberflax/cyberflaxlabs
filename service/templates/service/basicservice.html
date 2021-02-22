@@ -1,0 +1,218 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block style %}
+<style>
+    .bannerorenge {
+    background: url(/media/{{banner.0.banner}});
+    background-size: cover;
+    position: relative;
+}
+</style>
+{% endblock %}
+{% block body %}
+{% block service %}{% endblock %}
+ 
+
+
+
+
+   <!-- -----------------------------client--------------------- -->
+<section id="clients" class="section">
+
+    <div class="container">
+        <h3 class="section-title text-center ">
+            Industries we serve
+        </h3>
+        <div class="linemiddle"></div>
+        <div>
+
+            <div class="owl-carousel owl-theme" id="clients-scroller" style="opacity: 1; display: block;">
+                <div class="owl-wrapper-outer">
+                    <div class="owl-wrapper"
+                        style="width: 3562px; left: 0px; display: block; transition: all 800ms ease 0s; transform: translate3d(-411px, 0px, 0px);">
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/utility.svg' %}" alt="Utility">
+                                <br> Utility
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/banking.svg' %}" alt="Banking">
+                                <br> Banking
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/education.svg' %}" alt="Education">
+                                <br> Education
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/enterprise.svg' %}" alt="Enterprise">
+                                <br> Enterprise
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/entertainment.svg' %}" alt="Entertainment">
+                                <br> Entertainment
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/fashion.svg' %}" alt="Fashion">
+                                <br> Fashion
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/government.svg' %}" alt="Government">
+                                <br> Government
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/healthcare.svg' %}" alt="Healthcare">
+                                <br> Healthcare
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/retail.svg' %}" alt="Retail">
+                                <br> Retail
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/security.svg' %}" alt="Security">
+                                <br> Security
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/transport.svg' %}" alt="Transport">
+                                <br> Transport
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/travel.svg' %}" alt="Travel">
+                                <br> Travel
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 137px;">
+                            <div class="client-item-wrapper">
+                                <img src="{% static 'img/utility.svg' %}" alt="Utility">
+                                <br> Utility
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="owl-controls clickable" style="display: block;">
+                    <div class="owl-pagination">
+                        <div class="owl-page"><span class=""></span></div>
+                        <div class="owl-page active"><span class=""></span></div>
+                        <div class="owl-page"><span class=""></span></div>
+                        <div class="owl-page"><span class=""></span></div>
+                        <div class="owl-page"><span class=""></span></div>
+                        <div class="owl-page"><span class=""></span></div>
+                        <div class="owl-page"><span class=""></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+   <!-- ------------------------------Contact Area-------------------------------- -->
+<section id="contactarea" class="section active-section contactimagenew">
+    <div class="wrapsection maintitle">
+        <h3 class="whitecolor text-center">Got a project in mind? Let’s talk</h3>
+        <p class="whitecolor">We guarantee to get back to you within a business day</p>
+        <div class="container margintop20">
+            <div class="row">
+                <div class="col-md-10 backgroudwhite center-block1 mobiletop0" id="contactmaincon">
+
+                    <form id="contact" name="contact" action="/contact/" method="post" class="text-left contact_form">
+                        {% csrf_token %}   <fieldset>
+                            <div class="row">
+                                <div class="col-md-6  margintopmobile ">
+                                    <label for="name">Name<span class="required">*</span></label>
+                                    <input tabindex="1" type="text" name="txtName" id="txtName" size="30" value="" class="">
+                                    <div class="errorcontact1  display-hide" id="p_txtName"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">Email<span class="required">*</span></label>
+                                    <input tabindex="1" type="email" name="txtEmail" id="txtEmail" size="30" value="">
+                                    <div class="errorcontact1  display-hide" id="p_txtEmail"></div>
+                                </div>
+                                <div class="col-md-6  ">
+                                    <label for="email">Phone<span class="required">*</span></label>
+                                    <input tabindex="1" type="tel" name="txtPhone" id="txtPhone" size="30" value="">
+                                    <div class="errorcontact1 display-hide" id="p_txtPhone"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">How did you hear about us<span class="required">*</span></label>
+                                    <select tabindex="" id="txtKnow"  name = "txtKnow" >
+                                        <option value="">Search Engine</option>
+                                        {% for service in services %}{% if service.title != 'none' %}
+                                        <option value="{{service.id}}">{{service.title}}</option>{% endif %}
+                                        {% endfor %}
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message">Message<span class="required">*</span></label>
+                                <textarea tabindex="1" name="txtMessage" id="txtMessage"></textarea>
+                                <div class="errorcontact1 display-hide" id="p_txtMessage"></div>
+                                <input type="hidden" id="mail_type" name="mail_type" value="contactus">
+                                <input type="hidden" id="action" name="action" value="contact_mail">
+                            </div>
+                            <div class=" mt-30 text-center ">
+                                <button class="btn btn-common btn-md text-uppercase" type="submit">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        responsive: {
+            0: {
+                items: 2
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 6
+            }
+
+
+        }
+    })
+</script>
+{% endblock %}

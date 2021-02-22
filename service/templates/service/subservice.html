@@ -1,0 +1,749 @@
+{% extends 'service/basicservice.html' %}
+{% load static %}
+{% block service %}
+
+{% if banner %}
+<section class="bannerorenge  active-section" id="hero1">
+
+
+    <div class="container height100">
+        <div class="row textmiddle">
+            <div class="col-md-6 displaytable">
+                <div class="herotext">
+                    <h1 class="">{{banner.0.banner_title}} </h1>
+                    <h2 class="lead">{{banner.0.banner_content}}</h2>
+                    <p class="loadmore"><a class="btn btn-common btn-md text-uppercase" href="#">Get a Quote</a></p>
+                </div>
+            </div>
+            <div class="col-md-6  "><img class="mt-40" src="/media/{{banner.0.banner_icon}}" alt="Work With Awesome Mobile App Development Company"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endif %}
+
+{% if cat %}
+   <!-- -------------------how we work---------------->
+   <section class="section bg-white imagesizenew pt-50 pb-50">
+    <div class="section__content">
+        <div class="container ">
+            <h3 class="section-title text-center">{{cat.0}}</h3>
+            <div class="linemiddle mb-60"></div>
+
+            <div class="row">
+                {% for item in cat.1 %}
+                <div class="col-lg-4 text-center">
+                    <img src="/media/{{item.icon}}" alt="Mobile Design App">
+                    <h4 class="service__title " style="text-align: center;">{{item.title}}</h4>
+                    <p style="font-size: 15px!important;
+                    color: #444b54!important; text-align: center;">{{item.content|slice:":240"}}<br>
+                        <br><a href="{{request.path}}{{item.id}}" style=" color: #71bf45;;">Read More&gt;&gt;</a>
+                    </p>
+                    
+                </div>
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% endif %}
+
+{% if sub_service %}
+<section class="wrapsection  active-section pt-50 pb-50" id="about">
+    <div class="container">
+        {% if sub_service.0.Optionalicon %}
+        
+
+        <div class="row">
+            <div class="col-lg-8 col-sm-8 col-12 text-left">
+                <h1 class="section-title  text-left ">
+                    {{sub_service.0.tagline|safe}}</h1>
+                <div class="linemiddleleft"></div>
+                <div class="clearfix"></div>
+                <p class=" text-left ">
+                    {{ sub_service.0.tag_content|safe }}
+                </p>
+                <div class="row mt-20">
+                    <div class="col-lg-12">
+                        <div class="text-center"><a class="btn btn-common btn-md" href="#contactarea">Get a free
+                                Consultation</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-12 text-left"><img class="img-fluid mt-30" src="/media/{{ sub_service.0.Optionalicon }}"
+                    alt="Our staff augmentation service"></div>
+        </div>
+
+        {% else %}
+        <div class="maintitle">
+            <h2 class="section-title ">{{sub_service.0.tagline}}</h2>
+            <div class="linemiddle"></div>
+            <p class="">{{ sub_service.0.tag_content|safe }}<br>
+                <br>
+            </p>
+            <div class="text-center">
+                <a class="btn btn-common btn-md" href="#contactarea">Get a free Consultation</a>
+
+            </div>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+{% endif %}
+
+{% if middleimage %}
+<section class="pt-50 pb-50 grayng imgreduce">
+    {% for item in middleimage %}
+    <div class="container maintitle">
+        <div class="row">
+            <div class="col-lg-12 col-s
+            m-12 col-12 text-left">
+                <h1 class="section-title  text-center ">
+                    {{item.title}}</h1>
+                <div class="linemiddle"></div>
+                <div class="clearfix"></div>
+                <p class=" text-center ">
+                    <img class="img-fluid" src="/media/{{item.img}}" alt="Dedicated Team Establishment Process">
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
+
+
+{% if serviceweoffer.0 %}
+{% if serviceweoffer.1 == 1 %}
+<section class="section pt-50 pb-50" style="background-image: url(img/bitcoinbackgound.png);">
+    <div class="container maintitle">
+        <h4 class="section-title text-center ">
+         Services We Offer</h4>
+        <div class="linemiddle"></div>
+        <div class="row exe1">
+           {% for service in serviceweoffer.0 %}
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6 push-sm-6  push-lg-6 pt-30 ">
+                        <h4 class="pt-60">{{service.title}}</h4>
+                        <p class="text-left"><ul>{{service.content|safe}}</ul></p>
+                        <a class="btn btn-common btn-md" href="#contactarea">Contact us</a>
+                    </div>
+
+                    <div class="col-lg-6 pull-sm-6 my-4 pull-lg-6">
+                        <img src="/media/{{service.icon}}" class="img-fluid pt-30" style="width: 50%">
+                    </div>
+
+
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+    </div>
+</section>
+{% else %}
+<section class="wrapsection active-section pt-50 pb-50 graybg">
+    <div class="container">
+        <div class="col-lg-12 maintitle">
+            <h3 class="section-title wow flipInX animated animated animated" data-wow-delay=".2s"
+                style="visibility: visible;-webkit-animation-delay: .2s; -moz-animation-delay: .2s; animation-delay: .2s;">
+                Services we offer</h3>
+            <div class="linemiddle"></div>
+            <div class="row key">
+                <section class=" section--angle bg-white" id="services">
+                    <div class="section__content">
+                        <div class="container">
+                            <div class="service__grid keyimg">
+                                {% for service in serviceweoffer.0 %}
+                                <div class="service__item center  pl-30 pr-30 pb-25">
+                                    <div class="service__icon"><img alt="Custom Software Development"
+                                            src="/media/{{service.icon}}"></div>
+                                    <h4 class="service__title ">{{service.title}}</h4>
+                                    <p class= 'text-left'><ul style=" list-style-type: none;">{{service.content|safe}}</ul></p>
+                                    <div class="service__border service__border--y"></div>
+                                    <div class="service__border service__border--x"></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+{% endif %}
+
+
+{% if engagement %}
+<section class="whitecolor parallax section active-section pt-50 pb-50 engagement what">
+    <div class="wrapsection">
+        <div class="container">
+            <div class="row">
+                <div class="maintitle col-12">
+                    <h3 class=" whitecolor text-center mb-30 ">
+                        Our Engagement Models</h3>
+                    <div class="linemiddle mb-30"></div>
+                </div>
+                {% for item in engagement %}
+                <div class="col-lg-4 col-sm-6 d text-center pt-30 pb-30 " data-wow-delay="0.1s"
+                    style="visibility: visible;-webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
+                    <div class="ourflexi pl-20 pr-20 pb-20">
+                        <img alt="Resource per Hour" src="/media/{{item.icon}}">
+                        <h4>{{item.title}}</h4>
+                        <div class="linemiddle mb-20"></div>{{item.content}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+{% if devLifecycle %}
+<section class="section pt-50 pb-50 grayng">
+    <div class="container maintitle">
+        <h2 class="section-title text-center ">
+            {{devLifecycle.0.title}}</h2>
+        <div class="linemiddle"></div>
+        <p class="">
+        </p>
+        <p>{{devLifecycle.0.content}}</p>
+        <div class="row">
+            <div class="container text-center"><img alt="Our product development lifecycle" class="mt-40 img-fluid"
+                    src="/media/{{devLifecycle.0.icon}}" width="60%"></div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+{% if Subproject %}
+<section class="section" id="blog">
+    <div class="container">
+        <h3 class="section-title text-center ">We believe our work speaks for itself</h3>
+        <div class="linemiddle"></div>
+        <div class="row">
+            {% for project in Subproject %}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="blog-item-wrapper ">
+                    <div class="blog-item-img item">
+                        <a href=""><img alt="Dash" src="/media/{{project.img}}"></a>
+                    </div>
+                    <div class="blog-item-text">
+                        <h4 class="small-title"><a href="/contact/">{{project.name}}</a></h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-lg-12 mt-22 text-center">
+
+                <a class="btn btn-common" href="ios-apps">View Projects</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+{% if whatwedo %}
+<section class="wrapsection graybg active-section pt-50 pb-60">
+    <div class="container">
+        <div class="col-lg-12 maintitle">
+            <h3 class="text-center ">
+                What we do</h3>
+            <div class="linemiddle mb-15"></div>
+        </div>
+        {% for item in whatwedo  %}
+        <div class="row boxnewnewone pl-0 pr-0 mt-20 ">
+            <div class="boxincon col-lg-3 bluelight col-sm-5"><img alt="Android to iOS" src="/media/{{item.icon}}"></div>
+            <div class="col-lg-9 pt-40 col-sm-7">
+                <h4>{{item.title}}</h4>
+                <p>{{item.content}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endif %}
+
+
+{% if Benefits %}
+<section class="whitecolor parallax section active-section pt-50 pb-70 whatwecan">
+    <div class="container">
+        <div class="row">
+            <div class="maintitle col-12">
+                <h3 class=" whitecolor text-center ">
+                    Benefits</h3>
+                <div class="linemiddle mb-50"></div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-10 centerblock">
+                        <div class="row keyimg">
+                            {% for Benefit in Benefits %}
+                            <div class="col-lg-6 col-12 col-sm-6 mt-15 ">
+                                <div class="boxnew pt-30 pb-30 cursonenone">
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-3 col-sm-3 widthipad width16">
+                                            <img alt="Attract More Customers" src="/media/{{Benefit.icon}}"></div>
+                                        <div class="col-lg-9 col-sm-9 col-9">
+                                            <span class="pull-left mt-18">{{Benefit.content}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- {% if sub_service %}
+<div class="container">
+<h3 class="section-title text-center">
+    Services we offer</h3>
+<div class="linemiddle "></div>
+<p class="">{{sub_service.0.offered_service}}
+    </p>
+</div>
+{% endif %} -->
+
+{% if fact %}
+<section class="pt-50 pb-50">
+    <div class="container">
+        <div class="col-lg-12 maintitle">
+            <h3 class="text-center ">
+                Some facts &amp; figures</h3>
+            <div class="linemiddle mb-15"></div>
+        </div>
+        {% for item in fact %}
+        {% if forloop.counter|divisibleby:2 %}
+        
+        <div class="row mt-60">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 ">
+                        <img class="img-fluid" src="/media/{{item.icon}}"
+                            alt="The Gartner data for Jan 2016 shows Android was"></div>
+                    <div class="col-lg-8 col-sm-8 ">
+                        <span class="mt-80 pull-left">{{item.content}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row mt-60">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 " >
+                        <img class="img-fluid" src="/media/{{item.icon}}" alt="According to comScore"></div>
+                    <div class="col-lg-8 col-sm-8" >
+                        <span class="mt-40 pull-left">{{item.content}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+
+
+
+
+<section class="wrapsection active-section  pt-50 pb-50">
+    <div class="container keyimg">
+        <div class="col-lg-12 maintitle">
+            <div class="row mt-60 keynew">
+                <div class="col-md-6">
+                    <div class="borderright">
+                        <div class="media marginbottom40 ">
+                            <span class="media-left"><img alt="Strategy and Consultation"
+                                    src="{% static 'img/keyoffer.svg' %}"></span>
+                            <div class="media-body">
+                                <h4 class="media-heading">Strategy and Consultation</h4>
+                            </div>
+                        </div>
+                        <div class="media marginbottom40 ">
+                            <span class="media-left"><img alt="iOS UX/UI Design" src="{% static 'img/iosui.svg' %}"></span>
+                            <div class="media-body">
+                                <h4 class="media-heading">UX/UI Design</h4>
+                            </div>
+                        </div>
+                        <div class="media marginbottom40 ">
+                            <span class="media-left"><img alt="Custom iPhone/iPad App Development" class="img-fluid"
+                                    src="{% static 'img/custome.svg' %}"></span>
+                            <div class="media-body">
+                                <h4 class="media-heading lineheightmob">Custom App Development</h4>
+                            </div>
+                        </div>
+                        <div class="media marginbottom40 ">
+                            <span class="media-left"><img alt="Native and Hybrid App Development" class="img-fluid"
+                                    src="{% static 'img/android_5.svg' %}"></span>
+                            <div class="media-body">
+                                <h4 class="media-heading lineheightmob">Native and Hybrid App Development</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media marginbottom40">
+                        <span class="media-left"><img alt="QA and Testing" class="img-fluid"
+                                src="{% static 'img/android_3.svg' %}"></span>
+                        <div class="media-body">
+                            <h4 class="media-heading">QA and Testing</h4>
+                        </div>
+                    </div>
+                    <div class="media marginbottom40 ">
+                        <span class="media-left"><img alt="App Code Audit" class="img-fluid"
+                                src="{% static 'img/appcode.svg' %}"></span>
+                        <div class="media-body">
+                            <h4 class="media-heading"> Code Audit</h4>
+                        </div>
+                    </div>
+                    <div class="media marginbottom40 ">
+                        <span class="media-left"><img alt="iOS App Migration and Portability" class="img-fluid"
+                                src="{% static 'img/appcode1.svg' %}"></span>
+                        <div class="media-body">
+                            <h4 class="media-heading lineheightmob">App Migration and Portability</h4>
+                        </div>
+                    </div>
+                    <div class="media marginbottom40 ">
+                        <span class="media-left"><img alt="App Support Maintenance and Optimization"
+                                class="img-fluid" src="{% static 'img/android_4.svg' %}"></span>
+                        <div class="media-body">
+                            <h4 class="media-heading lineheightmob">App Support Maintenance and Optimization</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% if expertise.2 %}
+{% if expertise.4 %}
+<section class="section pt-50 pb-50 grayng">
+    <div class="container maintitle">
+        <h3 class="section-title text-center ">
+            {{expertise.2.0.title}}</h3>
+        <div class="linemiddle"></div>
+        <div class="row howour">
+            {% for item in expertise.4 %}
+            <div class="col-lg-6 col-sm-6 ">
+                <div class="row mt-30">
+                    <div class="col-lg-2 col-2"><img alt="Easy Integration with Internal Processes"
+                            src="/media/{{item.icon}}"></div>
+                    <div class="col-lg-9 col-9">
+                        <h4><strong>{{item.title}}</strong></h4>
+                        <p>{{item.content}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="whitecolor parallax section active-section pt-50 pb-50 what">
+    <div class="wrapsection">
+        <div class="container">
+ 
+            {% if expertise.0 %}
+            <div class="row">
+                <div class="maintitle col-12">
+                    <h3 class=" whitecolor text-center ">
+                        {{expertise.2.0.title}}</h3>
+                    <div class="linemiddle mb-30"></div>
+                    <p class="whitecolor mb-20">{{expertise.2.0.expertise}}
+                    </p>
+                </div>
+               
+                <div class="col-lg-6 exe  mt-20 ">
+
+
+            
+                    <ul>
+                        <ul>
+                            {% for item in expertise.0 %}
+                            {% if expertise.1 > forloop.counter %}
+                            <li>{{item.expertise}}if</li>
+                            {% else %}
+    
+                            {% if expertise.1 == forloop.counter %}
+                        </ul></div><div class="col-lg-6 exe mt-20  "><ul>
+                            {% endif %}
+                            <li>{{item.expertise}}else</li>
+                            {% endif %}
+                            {% endfor %}
+    
+                        </ul>
+    
+                    </ul>
+
+
+                </div>
+               
+            </div> 
+            {% else %}
+            {% if expertise.3.0.title %}
+            <div class="maintitle col-12">
+                <h3 class=" whitecolor text-center animated mb-20 ">
+                    {{expertise.2.0.title}}</h3>
+                <div class="linemiddle mb-50"></div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row features-footer">
+
+                    <div class="col-lg-10 centerblock">
+                        <div class="row keyimg">
+                            {% for item in expertise.3 %}
+                            <div class="col-lg-6 col-xs-12 col-sm-6 mt-15  wecan ">
+                                <div class="boxnew pt-30 pb-30 cursonenone">
+                                    <img src="/media/{{item.icon}}" alt="Minumum Viable Product"
+                                        class="feature-icon">{{item.title}}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="">
+                <div class="container">
+                    <h2 class="section-title text-center  whitecolor ">
+                        {{expertise.2.0.title}}</h2>
+                    <div class="linemiddle"></div>
+                    <div class="wow fadeInUpQuick animated">
+                        <div class="owl-carousel owl-theme" id="clients-scroller1" style="opacity: 1; display: block;">
+                            <div class="owl-wrapper-outer">
+                                <div class="owl-wrapper"
+                                    style="width: 3456px; left: 0px; display: block; transition: all 800ms ease 0s; transform: translate3d(-648px, 0px, 0px);">
+                                    {% for item in expertise.3 %}
+
+                                    <div class="owl-item" style="width: 216px;">
+                                        <div class="client-item-wrapper"><img src="/media/{{item.icon}}" alt="php">
+                                        </div>
+                                    </div>
+                                    
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="owl-controls clickable">
+                                <div class="owl-pagination">
+                                    <div class="owl-page"><span class=""></span></div>
+                                    <div class="owl-page active"><span class=""></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div> 
+    </div>
+</section>
+{% endif %}
+{% endif %}
+
+{% if bottomdiv %}
+{% for item in bottomdiv %}
+<section class="section pt-50 pb-50 ">
+    <div class="container maintitle">
+        <h5 class="section-title text-center " >
+            {{item.title}}</h5>
+        <div class="linemiddle"></div>
+        <p class=""  >
+        </p>
+
+        <div class="row uiux">
+
+            <div class="col-lg-6 exe1 pt-30 pt-0 " >
+
+                <ul>
+                    {{item.content|safe}}
+
+                </ul>
+            </div>
+            <div class="col-6">
+
+                <img src="/media/{{item.img}}" class="img-fluid" style="width: 100%; height: 100%;">
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+{% endfor %}
+{% endif %}
+
+   <!-- ----------------------------Development Process--------------------- -->
+   <section class="wrapsection  active-section graybg pt-50 pb-60">
+    <div class="container">
+        <div class="col-lg-12 maintitle">
+            <h3 class=" text-center ">Our app development process</h3>
+            <div class="linemiddle"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row " style="margin-left: 20px; list-style: none;">
+            <div class="col-lg-6 keyimg ">
+                <img alt="Ideation" src="{% static 'img/android_9.svg' %}">
+
+                <h3>Ideation
+                </h3>
+
+                <ul class="font-size15">
+                    <li>Understanding and analyzing clients app idea.</li>
+                    <li>Profiling business requirements like client base,
+                        deliverables, functionalities and core purpose.</li>
+
+                    <li>Validating and refining the idea to make it more
+                        desirable.</li>
+                    <li>Checking feasibility, time frame and estimated
+                        cost.</li>
+                    <li>Finalizing the milestones.</li>
+
+                </ul>
+
+            </div><br>
+
+            <div class="col-lg-6 keyimg ">
+                <img alt="Wireframing" src="{% static 'img/android_10.svg' %}">
+
+                <h3>Wireframing
+                </h3>
+
+                <ul class="font-size15">
+                    <li>Creating a prototype of the app considering the type of application
+                        (Native or Hybrid).</li>
+                    <li>Working on basics like features, user interface,
+                        look and feel of the app.</li>
+
+                    <li>Understand and analyze the supposed challenges
+                        that might occur at the later stage of development.</li>
+
+                </ul>
+
+            </div><br>
+
+            <div class="col-lg-6 keyimg ">
+                <img alt="Design" src="{% static 'img/android_11.svg' %}">
+
+                <h3>Design
+                </h3>
+
+                <ul class="font-size15">
+                    <li>Get wireframes approved and convert ideas and
+                        prototype into visuals.</li>
+                    <li>UI/UX team mulls over the constraints of
+                        developing an awesome app.</li>
+                    <li>Checking thoroughly each parameter
+                        considering latest trends and future scope.</li>
+                    <li>Creating static mock-ups and getting them
+                        approved from the client.</li>
+
+                </ul>
+
+            </div><br>
+
+            <div class="col-lg-6 keyimg ">
+                <img alt="Development" src="{% static 'img/android_12.svg' %}">
+
+                <h3>Development
+                </h3>
+
+                <ul class="font-size15">
+                    <li>Development starts simultaneously with the
+                        design.</li>
+                    <li>Using agile methodology, we regularly get
+                        prototypes approved from clients.</li>
+                    <li>Manual coding by following the predefined
+                        industrial standards.</li>
+
+                </ul>
+
+            </div><br>
+
+            <div class="col-lg-6 keyimg ">
+                <img alt="QA" src="{% static 'img/android_13.svg' %}">
+
+                <h3>QA &amp; Testing
+                </h3>
+
+                <ul class="font-size15">
+                    <li>Accessing and testing the final quality.</li>
+                    <li>QA team checks and tests the app at every stage of development.</li>
+                    <li>All known and unknown issues are fixed to make the app is free of
+                        glitches.</li>
+                    <li>We are known to deliver apps with exceptional quality.</li>
+
+                </ul>
+
+            </div><br>
+
+            <div class="col-lg-6 keyimg ">
+                <img alt="Support" src="{% static 'img/android_4.svg' %}">
+
+                <h3>Support
+                </h3>
+
+                <ul class="font-size15">
+                    <li>We go miles to ensure your app is up-to-date.</li>
+                    <li>Constant monitoring, support, OS upgrade and
+                        optimization so that your app is up and running.</li>
+                    <li>Bug fixing, app upgrades, analytic tracking makes
+                        us one of the best support and maintenance
+                        offering Android app Development Company.</li>
+                </ul>
+
+            </div><br>
+
+           
+
+          
+        </div>
+    </div>
+</section>
+{% endblock %}

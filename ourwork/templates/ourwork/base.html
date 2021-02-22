@@ -1,0 +1,134 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+{% if banner %}
+<div class="{{color}} pt-150 portfolio">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="text-center whitecolor" style="font-family: 'Raleway'; ">{{banner.0.title}}</h1>
+                <div class="linemiddle mb-30"></div>
+                <h4 class="whitecolor text-center hidden-sm-down">{{banner.0.content|safe}}</h4>
+
+            </div>
+            <div class="col-lg-5 col-sm-6 text-center push-lg-7 push-sm-6  imageContainer pt-50 "><img
+                    alt="damakhan" class="img-fluid" src="/media/{{banner.0.projecticon}}"></div>
+            <div class="col-lg-7 col-sm-6 pull-lg-5 pull-sm-6 ">
+                <div class="outer">
+                    <div class="middle">
+                        <div class="inner text-left">
+                            <div class="col-lg-12 pt-00 appstore">
+                                <img alt="Whats loan" class="mt-0 mb-30 img-fluid" src="/media/{{banner.0.projectimage}}">
+                                <div class="clearfix"></div>
+                                <h4 class="whitecolor">{{banner.0.projectTitle}}</h4>
+                           {% if banner.0.projectlink %}     <a class="btn btn-outline btn-round btn-sm text-uppercase backgrounnone whitecolor" href="{{banner.0.projectlink}}">View &nbsp;<img src="{% static 'img/right-arrow.svg' %}" class="viewmorebutton"></a>
+                                {% endif %}
+                                <div class="clearfix"></div>
+
+                                <a href="{{banner.0.sourceLink}}" target="_blank"><img alt="playstore" class="mt-30 mb-70 mr-10 img-fluid"
+                                        src="/media/{{banner.0.projectsource}}"></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% if work %}
+{% for item in work %}
+{% if forloop.counter|divisibleby:2 %}
+<div class="{{item.1}} pt-20 portfolio" style="min-height: 349px!important">
+    {% else %}
+    <div class="{{item.1}} pt-80 portfolio" style="min-height: 349px!important">
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-6 text-center  imageContainer ">{% if item.0.projectimage %}<img alt="damakhan" class="img-fluid" src="/media/{{item.0.projectimage}}" style=" margin-top: 80px;">{% endif %}</div>
+            <div class="col-lg-7 col-sm-6 ">
+                <div class="middle">
+                    <div class="inner text-left">
+                 {% if item.0.projecticon %}       <div class="col-lg-12 pt-00 appstore">
+                            <img alt="dash" class="mt-0 mb-30 img-fluid" src="/media/{{item.0.projecticon}}">{% endif %}
+                            <div class="clearfix">{{item.0.projectTitle}}</div>
+                            <h4 class="whitecolor">{{item.0.content}}</h4>
+                            {% if item.0.projectlink %}     <a class="btn btn-outline btn-round btn-sm text-uppercase backgrounnone whitecolor" href="{{banner.0.projectlink}}">View &nbsp;<img src="{% static 'img/right-arrow.svg' %}" class="viewmorebutton"></a>
+                            {% endif %}
+
+                            <div class="clearfix"></div>
+{% if item.0.projectsource %}<a href="{{item.0.sourceLink}}" target="_blank"><img alt="appstore" class="mt-30 mb-70 mr-10 img-fluid" src="/media/{{item.0.projectsource}}"></a>{% endif %}
+{% if item.0.projectsource1 %} <a href="{{item.0.sourceLink1}}" target="_blank"><img alt="appstore" class="mt-30 mb-70 mr-10 img-fluid" src="/media/{{item.0.projectsource1}}"></a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+  <!-- ------------------------------Contact Area-------------------------------- -->
+   <!-- ------------------------------Contact Area-------------------------------- -->
+<section id="contactarea" class="section active-section contactimagenew">
+    <div class="wrapsection maintitle">
+        <h3 class="whitecolor text-center">Got a project in mind? Let’s talk</h3>
+        <p class="whitecolor">We guarantee to get back to you within a business day</p>
+        <div class="container margintop20">
+            <div class="row">
+                <div class="col-md-10 backgroudwhite center-block1 mobiletop0" id="contactmaincon">
+
+                    <form id="contact" name="contact" action= "/contact/" method="post" class="text-left contact_form">
+                        {% csrf_token %} <fieldset>
+                            <div class="row">
+                                <div class="col-md-6  margintopmobile ">
+                                    <label for="name">Name<span class="required">*</span></label>
+                                    <input tabindex="1" type="text" name="txtName" id="txtName" size="30" value="" class="">
+                                    <div class="errorcontact1  display-hide" id="p_txtName"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">Email<span class="required">*</span></label>
+                                    <input tabindex="1" type="email" name="txtEmail" id="txtEmail" size="30" value="">
+                                    <div class="errorcontact1  display-hide" id="p_txtEmail"></div>
+                                </div>
+                                <div class="col-md-6  ">
+                                    <label for="email">Phone<span class="required">*</span></label>
+                                    <input tabindex="1" type="tel" name="txtPhone" id="txtPhone" size="30" value="">
+                                    <div class="errorcontact1 display-hide" id="p_txtPhone"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">How did you hear about us<span class="required">*</span></label>
+                                    <select tabindex="" id="txtKnow" name = "txtKnow">
+                                        <option value="">Search Engine</option>
+                                        {% for service in services %}{% if service.title != 'none' %}
+                                        <option value="{{service.id}}">{{service.title}}</option>{% endif %}
+                                        {% endfor %}
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message">Message<span class="required">*</span></label>
+                                <textarea tabindex="1" name="txtMessage" id="txtMessage"></textarea>
+                                <div class="errorcontact1 display-hide" id="p_txtMessage"></div>
+                                <input type="hidden" id="mail_type" name="mail_type" value="contactus">
+                                <input type="hidden" id="action" name="action" value="contact_mail">
+                            </div>
+                            <div class=" mt-30 text-center ">
+                                <button class="btn btn-common btn-md text-uppercase" type="submit"> Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,144 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+  <!-- ------------------------------Contact Area-------------------------------- -->
+  <section id="contactarea" class="section active-section contactimagenew">
+    <div class="wrapsection maintitle">
+        <h3 class="whitecolor text-center">Got a project in mind? Let’s talk</h3>
+        <p class="whitecolor">We guarantee to get back to you within a business day</p>
+        <div class="container margintop20">
+            <div class="row">
+                <div class="col-md-10 backgroudwhite center-block1 mobiletop0" id="contactmaincon">
+
+                    <form id="contact" name="contact" method="post" action= '/contact/' class="text-left contact_form">
+                        {% csrf_token %}
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6  margintopmobile ">
+                                    <label for="name">Name<span class="required">*</span></label>
+                                    <input tabindex="1" type="text" name="txtName" id="txtName" size="30" value="" class="" required>
+                                    <div class="errorcontact1  display-hide" id="p_txtName"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">Email<span class="required">*</span></label>
+                                    <input tabindex="1" type="email" name="txtEmail" id="txtEmail" size="30" value="" required>
+                                    <div class="errorcontact1  display-hide" id="p_txtEmail"></div>
+                                </div>
+                                <div class="col-md-6  ">
+                                    <label for="email">Phone<span class="required">*</span></label>
+                                    <input tabindex="1" type="tel" name="txtPhone" id="txtPhone" size="30" value="" required>
+                                    <div class="errorcontact1 display-hide" id="p_txtPhone"></div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="email">How did you hear about us<span class="required">*</span></label>
+                                    <select tabindex="" id="txtKnow" name="txtKnow" required>
+                                        <option value="">Search Engine</option>
+                                        {% for service in services %}{% if service.title != 'none' %}
+                                        <option value="{{service.id}}">{{service.title}}</option>{% endif %}
+                                        {% endfor %}
+                                        <option value="others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message">Message<span class="required">*</span></label>
+                                <textarea tabindex="1" name="txtMessage" id="txtMessage" required></textarea>
+                                <div class="errorcontact1 display-hide" id="p_txtMessage"></div>
+                                <input type="hidden" id="mail_type" name="mail_type" value="contactus">
+                                <input type="hidden" id="action" name="action" value="contact_mail">
+                            </div>
+                            <div class=" mt-30 text-center ">
+                                <button class="btn btn-common btn-md text-uppercase" type="submit"> Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% if contact %}
+<section class="wrapsection  active-section pt-50 pb-50">
+    <div class="container">
+        <div class="col-lg-12 maintitle text-center">
+            <h3 class="section-title ">
+                More contacts
+            </h3>
+
+
+            <div class="linemiddle"></div>
+            <div class="row common imageheight keyimg">
+  
+{% if contact.0.projectEnq %} <div class="col-lg-3 col-xs-12 col-sm-6 border-rightminus  borderallside text-center pb-20  ">
+                    <img src="{% static 'img/projects.svg' %}"   class="mt-50" alt="Project Enquiries">
+                    <br>
+                    <h4>Project Enquiries</h4> <a href="#">{{contact.0.projectEnq}}</a>
+                    <br>
+                    <br>
+                </div>{% endif %}
+  
+{% if contact.0.genralEnq %} <div class="col-lg-3 col-xs-12 col-sm-6 margin leftmineu text-center borderallside  pb-20 ">
+                    <img src="{% static 'img/projects1.svg' %}" class="mt-50" alt="General Enquiries">
+                    <br>
+                    <h4>General Enquiries</h4> <a href="#">{{contact.0.genralEnq}}</a>
+                </div>{% endif %}
+  
+{% if contact.0.carrerEnq %} <div class="col-lg-3 col-xs-12 col-sm-6 marginleftmineu text-center borderallside  pb-20">
+                    <img src="{% static 'img/projects2.svg' %}" class="mt-50" alt="Careers">
+                    <br>
+                    <h4> Careers</h4> <a href="#">{{contact.0.carrerEnq}}</a>
+                </div>{% endif %}
+  
+{% if contact.0.patnershipEnq %} <div class="col-lg-3 col-xs-12 col-sm-6  text-center marginleftmineu borderallside pb-20 ">
+                    <img src="{% static 'img/projects3.svg' %}" class="mt-50" alt="Partnership Enquiries">
+                    <br>
+                    <h4> Partnership Enquiries</h4> <a href="#">{{contact.0.patnershipEnq}}</a>
+
+
+                </div>{% endif %}
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+{% endif %}
+{% if contact.0.location %}
+<section class="wrapsection graybg active-section pt-50 pb-60">
+
+    <div class="container ">
+
+        <div class="col-lg-12 maintitle">
+            <h3 class="text-center " >
+                Locations</h3>
+            <div class="linemiddle mb-15"></div>
+        </div>
+        <div class="row boxnewnewone pl-0 pr-0 mt-20 " >
+            <div class="boxincon boxincon1 bluelight  col-12 col-md-8  us text-center address">
+
+                <h3>{{ contact.0.locationTitle|safe }} </h3>
+                {{contact.0.location|safe }}
+            </div>
+            <div class="col-lg-4 pt-20   col-xs-12 col-sm-12 col-md-4 contact2">
+                <div class="row">
+                   
+                    <div class="col-lg-9 pl-0 col-xs-12 col-sm-9  col-9 pl-4">
+                       
+
+                        <span>
+                            <img src="{% static 'img/message.png' %}" alt="message">&nbsp;<a
+                                href="#" style="color: #007bff;">{{contact.0.Enq|safe}}</a></span>
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+{% endblock %}

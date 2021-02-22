@@ -1,0 +1,159 @@
+{% extends 'basic.html' %}
+{% load static %}
+    {% block body %}
+    
+    <div class="inno-section">
+        <section>
+            <!-- <div class="wave water"></div>
+            <div class="wave water"></div>
+            <div class="wave water"></div>
+            <div class="wave water"></div> -->
+            <div class="text-center" style="margin-top: 250px;">
+                <h2> We serve to Inspire, Innovate &amp; Evolve </h2>
+                <h3>The digitized way to build <span class="typeanimate"></span>
+                </h3>
+
+                <script src="{% static 'js/typed.js' %}"></script>
+                <script>
+                    var typed = new Typed('.typeanimate', {
+                        strings: [
+                            "web solutions",
+                            "mobile apps",
+                            "custom software",
+                            "enterprises"
+                        ],
+                        typeSpeed: 50,
+                        backSpeed: 50,
+                        loop: true
+                    });
+                </script>
+
+            </div>
+            <div class="text-center">
+                <img class="text-left" src="{% static '/img/Asset 12.svg' %}" alt="" style="margin-top: 90px;">
+                <img class="text-right" src="{% static '/img/Asset 11.svg' %}" alt="" style="margin-top: 90px;">
+
+                <!-- <img class="text-right" src="{% static '/img/Asset 4.svg' %}" alt="" style="margin-top: 180px; margin-left: 410px;">
+    
+    <img class="text-right" src="{% static '/img/Asset 12.svg' %}" alt="" style="margin-top: 90px;"> -->
+            </div>
+
+        </section>
+    </div>
+    <!-- -------------------how we work---------------->
+    <section class="section bg-white imagesizenew pt-50 pb-50">
+        <div class="section__content">
+            <div class="container ">
+                <h3 class="section-title text-center">Here's what we can work on together</h3>
+                <div class="linemiddle mb-60"></div>
+
+                <div class="row">
+                    {% for work in service %}
+                    {% if work.title != 'none' %}
+                    <div class="col-lg-4 text-center">
+                        <img src="/media/{{work.icon}}" alt="Mobile Design App">
+                        <h4 class="service__title " style="text-align: center;">{{work.title}}</h4>
+                        <p style="font-size: 15px!important;
+                        color: #444b54!important; text-align: center;">{{work.content|slice:":254"}}<br>
+                            <br><a href="/service{{work.id}}" style=" color: #71bf45;;">Read More&gt;&gt;</a>
+                        </p>
+
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ------------------------Blog------------------ -->
+    <section class="section" id="blog">
+        <div class="container">
+            <h3 class="section-title text-center ">We believe our work speaks for itself</h3>
+            <div class="linemiddle mb-60"></div>
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="blog-item-wrapper">
+                        <div class="blog-item-img item">
+                            <a href="#"><img alt="Popshop live App" src="/media/{{project.icon}}"></a>
+                        </div>
+                        <div class="blog-item-text">
+                            <h4 class="small-title"><a href="/contact/">{{project.title|slice:':20'}}</a></h4>
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------Why choose us ------------------ -->
+    <section class="section" id="cool-facts">
+        <div class="container whychooseusnew">
+            <div class="maintitle col-12">
+                <h3 class="whitecolor text-center ">Why choose us</h3>
+                <div class="linemiddle mb-80 mt-20"></div>
+            </div>
+            <div class="row whychoose">
+                <div class="col-sm-6 col-xs-12 col-lg-4">
+                    <div class="fact-block clearfix">
+                        <div class="facts-item">
+                            <img class="pull-left" src="{% static 'img/team1.svg' %}" alt="Experience">
+                            <div class="fact-count">
+                                <h3><span class="counter">5</span>+ Years</h3>
+                                <h4>of Experience</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12 col-lg-4">
+                    <div class="fact-block clearfix ">
+                        <div class="facts-item">
+                            <img class="pull-left" src="{% static 'img/team2.svg' %}" alt="Industry Experts">
+                            <div class="fact-count">
+                                <h3><span class="counter">15</span>+</h3>
+                                <h4>Industry Experts</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12 col-lg-4">
+                    <div class="fact-block clearfix ">
+                        <div class="facts-item">
+                            <img class="pull-left" src="{% static 'img/team3.svg' %}" alt="Solutions Delivered">
+                            <div class="fact-count">
+                                <h3><span class="counter mt-5">100</span>+</h3>
+                                <h4>Solutions Delivered</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12 col-lg-4 mt-80">
+                    <div class="fact-block clearfix">
+                        <div class="facts-item">
+                            <img class="pull-left" src="{% static 'img/team5.svg' %}" alt="Happy Clients">
+                            <div class="fact-count">
+                                <h3><span class="counter">50</span>+</h3>
+                                <h4>Happy Clients</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12 col-lg-4 mt-80">
+                    <div class="fact-block clearfix">
+                        <div class="facts-item">
+                            <img class="pull-left" src="{% static 'img/team6.svg' %}" alt="Users Love our work">
+                            <div class="fact-count">
+                                <h4>Thousands of <br>user Love our work</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------footer--------------------- -->
+    {% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn InspironHome.wsgi --log-file -

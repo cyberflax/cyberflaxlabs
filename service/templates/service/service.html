@@ -1,0 +1,102 @@
+{% extends 'service/basicservice.html' %}
+{% load static %}
+{% block service %}
+
+{% if banner %}
+<section class="bannerorenge  active-section" id="hero1">
+
+
+    <div class="container height100">
+        <div class="row textmiddle">
+            <div class="col-md-6 displaytable">
+                <div class="herotext">
+                    <h1 class="">{{banner.0.banner_title}} </h1>
+                    <h2 class="lead">{{banner.0.banner_content}}</h2>
+                    <p class="loadmore"><a class="btn btn-common btn-md text-uppercase" href="#">Get a Quote</a></p>
+                </div>
+            </div>
+            <div class="col-md-6  "><img class="mt-40" src="/media/{{banner.0.banner_icon}}" alt="Work With Awesome Mobile App Development Company"></div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+
+{% if sub_service %}
+<section class="wrapsection  active-section pt-50 pb-50" id="about">
+    <div class="container">
+        {% if sub_service.0.Optionalicon %}
+        
+
+        <div class="row">
+            <div class="col-lg-8 col-sm-8 col-12 text-left">
+                <h1 class="section-title  text-left ">
+                    {{sub_service.0.tagline|safe}}</h1>
+                <div class="linemiddleleft"></div>
+                <div class="clearfix"></div>
+                <p class=" text-left ">
+                    {{ sub_service.0.tag_content|safe }}
+                </p>
+                <div class="row mt-20">
+                    <div class="col-lg-12">
+                        <div class="text-center"><a class="btn btn-common btn-md" href="#contactarea">Get a free
+                                Consultation</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-12 text-left"><img class="img-fluid mt-30" src="/media/{{ sub_service.0.Optionalicon }}"
+                    alt="Our staff augmentation service"></div>
+        </div>
+
+        {% else %}
+        <div class="maintitle">
+            <h2 class="section-title ">{{sub_service.0.tagline}}</h2>
+            <div class="linemiddle"></div>
+            <p class="">{{ sub_service.0.tag_content|safe }}<br>
+                <br>
+            </p>
+            <div class="text-center">
+                <a class="btn btn-common btn-md" href="#contactarea">Get a free Consultation</a>
+
+            </div>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+{% endif %}
+
+{% if cat %}
+   <!-- -------------------how we work---------------->
+   <section class="section bg-white imagesizenew pt-50 pb-50">
+    <div class="section__content">
+        <div class="container ">
+            <h3 class="section-title text-center">{{cat.0}}</h3>
+            <div class="linemiddle mb-60"></div>
+
+            <div class="row">
+                {% for item in cat.1 %}
+                {% if item.title != 'none' %}
+                <div class="col-lg-4 text-center">
+                    <img src="/media/{{item.icon}}" alt="Mobile Design App">
+                    <h4 class="service__title " style="text-align: center;">{{item.title}}</h4>
+                    <p style="font-size: 15px!important;
+                    color: #444b54!important; text-align: center;">{{item.content}}<br>
+                        <br><a href="{{request.path}}{{item.id}}" style=" color: #71bf45;;">Read More&gt;&gt;</a>
+                    </p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% endif %}
+
+
+{% endblock %}

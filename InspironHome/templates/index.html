@@ -1,45 +1,49 @@
 {% extends 'basic.html' %}
 {% load static %}
     {% block body %}
-    
-    <div class="inno-section">
-        <section>
-            <!-- <div class="wave water"></div>
-            <div class="wave water"></div>
-            <div class="wave water"></div>
-            <div class="wave water"></div> -->
-            <div class="text-center" style="margin-top: 250px;">
-                <h2> We serve to Inspire, Innovate &amp; Evolve </h2>
-                <h3>The digitized way to build <span class="typeanimate"></span>
-                </h3>
+    {% block style %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-                <script src="{% static 'js/typed.js' %}"></script>
-                <script>
-                    var typed = new Typed('.typeanimate', {
-                        strings: [
-                            "web solutions",
-                            "mobile apps",
-                            "custom software",
-                            "enterprises"
-                        ],
-                        typeSpeed: 50,
-                        backSpeed: 50,
-                        loop: true
-                    });
-                </script>
-
+{% endblock %}
+    {% if banners %}
+    <div>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for banner in banners %}
+            <div class="carousel-item {% if forloop.counter == 1 %} active{% endif %}">
+              <section class="bannerorenge  active-section" id="hero1" style=" background: url(/media/{{banner.banner}});background-size: cover;position: relative;">
+  
+  
+                  <div class="container height100">
+                      <div class="row textmiddle">
+                          <div class="col-md-6 displaytable">
+                              <div class="herotext">
+                                  <h1 class="">{{banner.banner_title}} </h1>
+                                  <h2 class="lead">{{banner.banner_content}}</h2>
+                                  <p class="loadmore"><a class="btn btn-common btn-md text-uppercase" href="/contact">Get a Quote</a></p>
+                              </div>
+                          </div>
+                          <div class="col-md-6  "><img class="mt-40" src="/media/{{banner.banner_icon}}" alt="Work With Awesome Mobile App Development Company"></div>
+                      </div>
+                  </div>
+              </section>
             </div>
-            <div class="text-center">
-                <img class="text-left" src="{% static '/img/Asset 12.svg' %}" alt="" style="margin-top: 90px;">
-                <img class="text-right" src="{% static '/img/Asset 11.svg' %}" alt="" style="margin-top: 90px;">
-
-                <!-- <img class="text-right" src="{% static '/img/Asset 4.svg' %}" alt="" style="margin-top: 180px; margin-left: 410px;">
-    
-    <img class="text-right" src="{% static '/img/Asset 12.svg' %}" alt="" style="margin-top: 90px;"> -->
-            </div>
-
-        </section>
-    </div>
+            {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+  
+  
+  </div>
+{% endif %}
     <!-- -------------------how we work---------------->
     <section class="section bg-white imagesizenew pt-50 pb-50">
         <div class="section__content">

@@ -618,6 +618,8 @@
 {% endif %}
 
    <!-- ----------------------------Development Process--------------------- -->
+{% if banner.0.service|slugify == 'mobile-app-development' or banner.0.sub_service|slugify == 'blockchain-app-development' %}
+   <!-- ----------------------------Development Process--------------------- -->
    <section class="wrapsection  active-section graybg pt-50 pb-60">
     <div class="container">
         <div class="col-lg-12 maintitle">
@@ -745,5 +747,5 @@
           
         </div>
     </div>
-</section>
+</section>{% endif %}
 {% endblock %}

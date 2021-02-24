@@ -1,16 +1,18 @@
 from django.shortcuts import render
-from .models import project
+from .models import project,homebanner
 from service.models import service,ServiceSubMenu
 
 
 def index(request):
     Service = service.objects.all()
     Project = project.objects.all()
+    banners = homebanner.objects.all()
     responce = {
         'title':'HOME PAGE',
         'home':'active',
         'service': Service,
-        'projects':Project
+        'projects':Project,
+        'banners': banners
     }
     return render(request , 'index.html',responce)
 

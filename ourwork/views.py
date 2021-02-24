@@ -13,6 +13,6 @@ def work(request ,num1= 0):
         'title':ourwork_cat.objects.get(id=num1).title,
         'banner':Banner,
         'color': random.choice(color),
-        'work':rep
+        'work':rep,
     }
     return render(request,'ourwork/base.html',res)

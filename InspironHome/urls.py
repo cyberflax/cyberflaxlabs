@@ -27,7 +27,5 @@ urlpatterns = [
     path('service/', include('service.urls')),
     path('ourwork/', include('ourwork.urls')),
     path('contact/', include('contact.urls')),
-    path('ourwork<int:num1>/', include('ourwork.urls')),
-    path('service<int:num1>/', include('service.urls')),
     
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

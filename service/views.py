@@ -7,6 +7,18 @@ from random import randint
 def services(request , num1=0):
 	return render(request,'service/service.html')
 def handle(request,num1,num2= 0):
+	if type(num1)==str:
+		num1 = num1.replace('__','/')
+		try:
+			num1 =  service.objects.get(title = num1.replace('_',' ')).id
+		except Exception as a:
+			return redirect('home')
+	if type(num2)==str:
+		num2 = num2.replace('__','/')
+		try:
+			num2 =  ServiceSubMenu.objects.get(Submenu = num2.replace('_',' ')).id
+		except Exception as a:
+			return redirect('home')
 	cats=[]
 	if num2 == 0:
 		Service = ServiceSubMenu.objects.filter(Service=num1)

@@ -3,7 +3,7 @@ from .models import ourwork
 from ourwork.models import ourwork_cat
 def alltimefunc(request):
     services = service.objects.values('id','title')
-    work = ourwork_cat.objects.all()
+    work = ourwork_cat.objects.values('title')
     for ser in services:
         sObject = service.objects.get(id = ser['id'])
         dropdown = ServiceSubMenu.objects.filter(Service=sObject)

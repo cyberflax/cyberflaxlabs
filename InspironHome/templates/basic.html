@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
+    {% load poll_extras %}
 
 <head>
     <meta charset="UTF-8">
@@ -68,7 +69,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% for work in ourwork %}
-                            <li><a class="dropdown-item" href="/ourwork{{work.id}}/">{{work.title}}</a></li>
+                            <li><a class="dropdown-item" href="/ourwork/{{work.title|repspace}}/">{{work.title}}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -81,13 +82,13 @@
                             {% for service in services %}
                             <li {% if service.dropdown %}class="nav-link dropdown-submenu"{% endif %}>
                                 {% if service.title != 'none' %}
-                                <a class="dropdown-item {% if service.dropdown %}dropdown-toggle{% endif %}" href="/service{{service.id}}">{{service.title}}</a>
+                                <a class="dropdown-item {% if service.dropdown %}dropdown-toggle{% endif %}" href="/service/{{service.title|repspace}}">{{service.title}}</a>
                                 {% endif %}
                                 {% if service.dropdown %}
                                 <ul class="dropdown-menu">
                                     {% for drop in service.dropdown %}
                                     
-                                    <li><a href="/service{{service.id}}/{{drop.id}}" class="dropdown-item">{{drop.Submenu}}</a></li>
+                                    <li><a href="/service/{{service.title|repspace}}/{{drop.Submenu|repspace}}" class="dropdown-item">{{drop.Submenu}}</a></li>
                                     
                                     {% endfor %}
                                 </ul>
@@ -130,7 +131,7 @@
                             </li>
                             {% for work in ourwork %}
                             {% if 6 > forloop.counter  %}
-                            <li><a href="/ourwork{{work.id}}/">{{work.title}}</a></li>
+                            <li><a href="/ourwork/{{work.title|repspace}}/">{{work.title}}</a></li>
                             {% endif %}
                             {% endfor %}
                         </ul>
@@ -143,7 +144,7 @@
                             {% for service in services %}
                             {% if 7 > forloop.counter  %}{% if service.title != 'none' %}
                             <li>
-                                <h4><a href="/service{{service.id}}">{{service.title}}</a></h4>
+                                <h4><a href="/service/{{service.title|repspace}}">{{service.title}}</a></h4>
                             </li>
                             {% endif %}
                             {% endif %}

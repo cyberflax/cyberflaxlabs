@@ -90,22 +90,22 @@ WSGI_APPLICATION = 'InspironHome.wsgi.application'
 #         'PORT': '3306'
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'u404552104_labs',
-        'USER': 'u404552104_root123',
-        'PASSWORD': 'Ritik@10120',
-        'HOST': 'sql152.main-hosting.eu',
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'u404552104_labs',
+#         'USER': 'u404552104_root123',
+#         'PASSWORD': 'Ritik@10120',
+#         'HOST': 'sql152.main-hosting.eu',
+#         'PORT': '3306'
+#     }
+# }
 
 
 

@@ -29,4 +29,5 @@ class Work(models.Model):
     projectsource1 = models.FileField(upload_to="ourwork/projectsource",blank = True)
     sourceLink1= models.CharField(max_length= 500,blank = True)
     projectlink= models.CharField(max_length= 500,blank = True)
-        
+    def __str__(self):
+        return str(self.catagory)

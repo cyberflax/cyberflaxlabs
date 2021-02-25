@@ -58,9 +58,9 @@
                     <div class="inner text-left">
                  {% if item.0.projecticon %}       <div class="col-lg-12 pt-00 appstore">
                             <img alt="dash" class="mt-0 mb-30 img-fluid" src="/media/{{item.0.projecticon}}">{% endif %}
-                            <div class="clearfix">{{item.0.projectTitle}}</div>
+                            <div class="clearfix"><h4><strong style="color: beige;">{{item.0.projectTitle}}</strong></h4></div>
                             <h4 class="whitecolor">{{item.0.content}}</h4>
-                            {% if item.0.projectlink %}     <a class="btn btn-outline btn-round btn-sm text-uppercase backgrounnone whitecolor" href="{{banner.0.projectlink}}">View &nbsp;<img src="{% static 'img/right-arrow.svg' %}" class="viewmorebutton"></a>
+                            {% if item.0.projectlink %}     <a class="" href="{{banner.0.projectlink}}"><button class="btn btn-common">View</button></a>
                             {% endif %}
 
                             <div class="clearfix"></div>

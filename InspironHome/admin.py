@@ -4,5 +4,4 @@ from django.contrib import admin
 from .models import project,ourwork,homebanner
 
 admin.site.register(project)
-admin.site.register(ourwork)
 admin.site.register(homebanner)

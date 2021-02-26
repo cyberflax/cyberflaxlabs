@@ -1,9 +1,10 @@
 {% extends 'service/basicservice.html' %}
 {% load static %}
+{% load poll_extras %}
 {% block service %}
 
 {% if banner %}
-<section class="bannerorenge  active-section" id="hero1">
+<section class="bannerorenge  active-section" id="hero1" style="height: 550px;">
 
 
     <div class="container height100">
@@ -40,7 +41,7 @@
                     <h4 class="service__title " style="text-align: center;">{{item.title}}</h4>
                     <p style="font-size: 15px!important;
                     color: #444b54!important; text-align: center;">{{item.content|slice:":240"}}<br>
-                        <br><a href="{{request.path}}{{item.id}}" style=" color: #71bf45;;"><button class="btn btn-common btn-md ">Read More..</button></a>
+                        <br><a href="{{request.path}}{{item.title|repspace}}" style=" color: #71bf45;;"><button class="btn btn-common btn-md ">Read More..</button></a>
                     </p>
                     
                 </div>

@@ -1,5 +1,18 @@
 {% extends 'basic.html' %}
 {% load static %}
+{% block style %}
+<style>
+    .mt-30 {
+    margin-top: 30px;
+    MARGIN-BOTTOM: 17PX;
+    }
+    .portfolio.pt-150 {
+    padding-top: 50px;
+    padding-bottom: 27px;
+
+}
+</style>
+{% endblock %}
 {% block body %}
 {% if banner %}
 <div class="{{color}} pt-150 portfolio">
